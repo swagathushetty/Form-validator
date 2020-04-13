@@ -6,6 +6,7 @@ const password2 = document.getElementById('password2')
 
 
 //show input error message
+//refer doc 1.1
 function showError(input,message){
  const formControl=input.parentElement;
  console.log(formControl)
@@ -16,12 +17,14 @@ function showError(input,message){
 
 
 //show input success message
+//refer docs 1.2
 function showSuccess(input) {
     const formControl = input.parentElement;
     formControl.className = 'form-control success'
-    
 }
 
+//checks if input email is valid or not
+//refer docs 1.3
 function isValidEmail(input){
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -32,6 +35,8 @@ function isValidEmail(input){
     }
 }
 
+//checks if the input is empty or nor
+//refer docs 1.4
 function checkRequired(inputArray){
     inputArray.forEach(function(input){
         console.log(input.value)
@@ -42,16 +47,25 @@ function checkRequired(inputArray){
         }
     })
 }
+
+//compares if two passwords are equal or not
+//refer docs 1.5
 function checkPasswordsMatch(input1,input2){
     if(input1.value!==input2.value){
         showError(input2,'passwords do not match')
     }
 }
 
+
+//captilzes the first letter of input id name
+//refer docs 1.6
 function getFieldName(input){
     return input.id.charAt(0).toUpperCase()+ input.id.slice(1)
 }
 
+
+//checks if length of enetered input is within limits
+//refer docs 1.7
 function checkLength(input,min,max){
     if(input.value.length<min){
         showError(input,`${getFieldName(input)} must be atleast ${min} characters`)
@@ -62,7 +76,7 @@ function checkLength(input,min,max){
     }
 }
 
-
+//refer docs 1.8
 form.addEventListener('submit',function(e){
     e.preventDefault()
     // if(username.value===''){
